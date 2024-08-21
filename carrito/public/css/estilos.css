@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+p,h1,h2,h3,h4 {
+    font-family: "Nunito", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: black;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header h2 {
+    color: white;
+}
+
+header div button {
+    height: 30px;
+    width: 80px;
+    border-radius: 5px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+h1 {
+    margin-top: 20px;
+    font-size: 25px;
+}
+
+.contenedorProducto {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.productoCard{
+    margin: 10px;
+    border-radius: 5px;
+    border: 2px solid #7c7c7ce0;
+    padding: 7px;
+    background-color: rgb(27, 27, 27);
+    transition: all .4s;
+}
+
+.productoCard:hover {
+    transform: scale(1.02,1.02);
+}
+
+.productoPropiedades {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    max-width: 250px;
+    color: rgb(235, 235, 235);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 20px 10px 20px;
+}
+
+.imagenProduct{
+    display: flex;
+    justify-content: center;
+}
+
+.imagenProduct img {
+    width: 140px;
+    height: 140px;
+    border-radius: 5px;
+    border: 2px solid #00000094;
+}
+
+.productoPrecio{
+    color: rgb(235, 235, 235);
+    display: flex;
+    align-items: center;
+    max-width: 250px;
+}
+
+.productoPrecio button{
+    margin: 0px 5px 0px 0px;
+    height: 30px;
+    width: 80px;
+    border-radius: 5px;
+    background-color: rgb(235, 235, 235);
+    color: rgb(0, 0, 0);
+    border: none;
+}
+
+.spanPeso {
+    color: rgb(0, 214, 0);
+}
+
+.precioP {
+    font-size: 25px;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+}
+
+.box2 {
+    display: flex;
+    border: 1px solid #141414;
+    justify-content: center;
+    margin-top: 10%;
+    width: 300px;
+    height: 300px;
+}
+
+.buttonLogin {
+    height: 40px;
+    width: 90px;
+    border-radius: 5px;
+    color: white;
+    background-color: #121212;
+    border: none;
+    margin: 5px 0px 0px 40px;
+    cursor: pointer;
+}
+
+.box2 .formBox {
+    margin: 30px 0 15px 0;
+}

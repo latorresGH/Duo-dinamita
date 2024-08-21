@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+ <p>Email: {{ app.user.email }}</p>
+{% endif %}
+
+    <h1><b>Lista de productos</b></h1>
+    <div class="contenedorProducto">
+        {% for key, product in productos %}
+        <div class="productoCard">
+            <div class="imagenProduct">
+                <img src="{{product.imagen}}">
+            </div>
+            
+            <div class="productoPropiedades">
+                <h2>{{product.nombre}}</h2> 
+                <p class="precioP"><span class="spanPeso">$</span>{{product.precio}}</p>
+            </div>
+            <div class="productoPrecio">
+                <p>{{product.descripcion}}</p>
+                <button><b>DETALLES</b></button>
+                
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+{% endblock %}
+
