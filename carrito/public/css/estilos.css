@@ -137,3 +137,39 @@ h1 {
     justify-content: center;
     flex-direction: column;
 }
+
+.detailsContainer {
+    display: flex;
+    margin: 20px 0 0 30px;
+}
+
+.infContainer {
+    margin: 0 0 0 150px;
+    border: 1px solid #121212;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.buttonDetails {
+    height: 40px;
+    width: 90px;
+    border-radius: 5px;
+    color: white;
+    background-color: #121212;
+    border: none;
+    cursor: pointer;
+}
+
+.productContainer {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+}
+
+.infContainer button {
+    margin-top: 15px;
+}
+
+.detailsTittle {
+    margin-left: 10px;
+}

@@ -1,20 +1,22 @@
 {% include "header.html.twig" %}
 {% block body %}
-<h1><b>Detalle Producto</b></h1>
-<div>
+<h1 class="detailsTittle"><b>Detalle Producto</b></h1>
+<div class="detailsContainer">
     <div class="ImageByOne">
        <img src="{{ asset(producto.imagen) }}">
     </div>
-    <div class="productoProperties">
-        <h2>{{producto.nombre}}</h2> 
-        <p class="precioP"> Precio <span class="spanPeso">$</span>{{producto.precio}}</p>
+
+    <div class="infContainer">
+        <div class="productContainer">
+            <h2>{{producto.nombre}}</h2> 
+            <p>{{producto.descripcion}}</p>
+            <p> <b>Precio: <span class="spanPeso">$</span>{{producto.precio}}</b></p>
+        </div>
+
+        <a href="{{ path('listar_productos') }}">
+            <button class="buttonDetails" type="submit"><b>Volver</b></button>
+        </a>
     </div>
-    <div class="productoPrecio">
-        <p>{{producto.descripcion}}</p>
-    </div>
-    <a href="{{ path('listar_productos') }}">
-        <button class="buttonLogin" type="submit"><b>Volver</b></button>
-    </a>
     
 </div>
 {% endblock %}
