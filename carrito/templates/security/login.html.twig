@@ -12,14 +12,17 @@
             <h1 class="tituloLogin">
                 Inicio de Sesion
             </h1>
-            <div class="formBox">
-                <form action="{{ path('app_login') }}" method="post">
-                    <p>Email:</p>
-                    <input type="text" id="username" name="_username" value="{{ last_username }}" />
-                    <p>Password:</p>
-                    <input type="password" id="password" name="_password" />
-                    <button class="buttonLogin" type="submit">Iniciar Sesion</button>
-                </form>
+        <div>
+                <div class="formBox">
+                    <form action="{{ path('app_login') }}" method="post">
+                        <p>Email:</p>
+                        <input type="text" id="username" name="_username" value="{{ last_username }}" />
+                        <p>Password:</p>
+                        <input type="password" id="password" name="_password" />
+                        <button class="buttonLogin" type="submit">Iniciar Sesion</button>
+                    </form>
+            </div>
+
             </div>
         </div>
     </div>

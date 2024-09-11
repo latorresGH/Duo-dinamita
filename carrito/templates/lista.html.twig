@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% include "header.html.twig" %}
 {% block body %}
 
 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
@@ -19,8 +19,9 @@
             </div>
             <div class="productoPrecio">
                 <p>{{product.descripcion}}</p>
+                <a href="{{ path('detalle_producto', { idProducto: product.id }) }}">
                 <button><b>DETALLES</b></button>
-                
+                </a>
             </div>
         </div>
         {% endfor %}
