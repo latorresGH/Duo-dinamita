@@ -13,15 +13,15 @@ class ProductoFixtures extends Fixture
     {
         // $product = new Product();
         // $manager->persist($product);
-        for($i = 1; $i <= 10; $i++){
+        for ($i = 1; $i <= 10; $i++) {
             $producto = new Producto();
-            $producto->setNombre('Producto '.$i);
+            $producto->setNombre('Producto ' . $i);
             $producto->setDescripcion(' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies pellentesque aliquam. ');
-            $producto->setPrecio(mt_rand(10,100));
-            $producto->setImagen('images/producto'.$i.'.jpg');
+            $producto->setPrecio(mt_rand(10, 100));
+            $producto->setImagen('images/producto' . $i . '.jpg');
             $manager->persist($producto);
         }
-        
+
         $manager->flush();
     }
 }

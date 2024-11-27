@@ -16,7 +16,7 @@ class OrdenRepository extends ServiceEntityRepository
         parent::__construct($registry, Orden::class);
     }
 
-//    /**
+    //    /**
 //     * @return Orden[] Returns an array of Orden objects
 //     */
 //    public function findByExampleField($value): array
@@ -31,7 +31,7 @@ class OrdenRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Orden
+    //    public function findOneBySomeField($value): ?Orden
 //    {
 //        return $this->createQueryBuilder('o')
 //            ->andWhere('o.exampleField = :val')

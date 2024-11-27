@@ -1,175 +1,277 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 
-p,h1,h2,h3,h4 {
-    font-family: "Nunito", sans-serif;
+p,
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Nunito", sans-serif;
 }
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-    background-color: black;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
+  background-color: black;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
-header h2 {
-    color: white;
+header h2,header h3 {
+  color: white;
 }
 
 header div button {
-    height: 30px;
-    width: 80px;
-    border-radius: 5px;
-    background-color: white;
-    border: none;
-    cursor: pointer;
+  height: 30px;
+  width: 80px;
+  border-radius: 5px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
 }
 
 h1 {
-    margin-top: 20px;
-    font-size: 25px;
+  margin-top: 20px;
+  font-size: 25px;
 }
 
 .contenedorProducto {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-.productoCard{
-    margin: 10px;
-    border-radius: 5px;
-    border: 2px solid #7c7c7ce0;
-    padding: 7px;
-    background-color: rgb(27, 27, 27);
-    transition: all .4s;
+.productoCard {
+  margin: 10px;
+  border-radius: 5px;
+  border: 2px solid #7c7c7ce0;
+  padding: 7px;
+  background-color: rgb(27, 27, 27);
+  transition: all 0.4s;
 }
 
 .productoCard:hover {
-    transform: scale(1.02,1.02);
+  transform: scale(1.02, 1.02);
 }
 
 .productoPropiedades {
-    margin-top: 15px;
-    margin-bottom: 10px;
-    max-width: 250px;
-    color: rgb(235, 235, 235);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px 20px 10px 20px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  max-width: 250px;
+  color: rgb(235, 235, 235);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 20px 10px 20px;
 }
 
-.imagenProduct{
-    display: flex;
-    justify-content: center;
+.imagenProduct {
+  display: flex;
+  justify-content: center;
 }
 
 .imagenProduct img {
-    width: 140px;
-    height: 140px;
-    border-radius: 5px;
-    border: 2px solid #00000094;
+  width: 140px;
+  height: 140px;
+  border-radius: 5px;
+  border: 2px solid #00000094;
 }
 
-.productoPrecio{
-    color: rgb(235, 235, 235);
-    display: flex;
-    align-items: center;
-    max-width: 250px;
+.productoPrecio {
+  color: rgb(235, 235, 235);
+  display: flex;
+  align-items: center;
+  max-width: 250px;
 }
 
-.productoPrecio button{
-    margin: 0px 5px 0px 0px;
-    height: 30px;
-    width: 80px;
-    border-radius: 5px;
-    background-color: rgb(235, 235, 235);
-    color: rgb(0, 0, 0);
-    border: none;
+.productoPrecio button {
+  margin: 0px 5px 0px 0px;
+  height: 30px;
+  width: 80px;
+  border-radius: 5px;
+  background-color: rgb(235, 235, 235);
+  color: rgb(0, 0, 0);
+  border: none;
 }
 
 .spanPeso {
-    color: rgb(0, 214, 0);
+  color: rgb(0, 214, 0);
 }
 
 .precioP {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 .box {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .box2 {
-    display: flex;
-    border: 1px solid #141414;
-    justify-content: center;
-    margin-top: 10%;
-    width: 300px;
-    height: 300px;
+  display: flex;
+  border: 1px solid #141414;
+  justify-content: center;
+  margin-top: 10%;
+  width: 300px;
+  height: 300px;
 }
 
 .buttonLogin {
-    height: 40px;
-    width: 90px;
-    border-radius: 5px;
-    color: white;
-    background-color: #121212;
-    border: none;
-    margin: 5px 0px 0px 40px;
-    cursor: pointer;
+  height: 40px;
+  width: 90px;
+  border-radius: 5px;
+  color: white;
+  background-color: #121212;
+  border: none;
+  margin: 5px 0px 0px 40px;
+  cursor: pointer;
 }
 
 .box2 .formBox {
-    margin: 30px 0 15px 0;
+  margin: 30px 0 15px 0;
 }
 
 .box2 .formBox form {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .detailsContainer {
-    display: flex;
-    margin: 20px 0 0 30px;
+  display: flex;
+  margin: 20px 0 0 30px;
 }
 
 .infContainer {
-    margin: 0 0 0 150px;
-    border: 1px solid #121212;
-    padding: 5px;
-    border-radius: 8px;
+  margin: 0 0 0 150px;
+  border: 1px solid #121212;
+  padding: 5px;
+  border-radius: 8px;
 }
 
 .buttonDetails {
-    height: 40px;
-    width: 90px;
-    border-radius: 5px;
-    color: white;
-    background-color: #121212;
-    border: none;
-    cursor: pointer;
+  height: 40px;
+  width: 90px;
+  border-radius: 5px;
+  color: white;
+  background-color: #121212;
+  border: none;
+  cursor: pointer;
 }
 
 .productContainer {
-    display: flex;
-    gap: 12px;
-    flex-direction: column;
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
 }
 
 .infContainer button {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .detailsTittle {
-    margin-left: 10px;
+  margin-left: 10px;
+}
+
+.imageDetails {
+  width: 200px;
+  height: 200px;
+  border: solid 1px black;
+}
+ 
+.flashProducto {
+  font-family: "Nunito", sans-serif;
+  background-color: #CEE2FE;
+  color:#395A9D;
+  padding: 10px;
+  max-width: 800px;
+  border-radius:2px;
+  margin-left: 15px;
+}
+
+.verOrdenHeader{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+button b{
+font-size: 12px;
+}
+.contenedor1{
+  display: flex;
+  padding: 30px;
+  gap: 5px;
+}
+.contenedor2{
+  width: 68%;
+  
+}
+.contenedor3{
+  width: 33%;
+  
+}
+.listaOrden{
+  display: flex;
+}
+
+.pLista{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  padding: 12px;
+}
+.nombreLista{
+  padding-right: 180px;
+}
+.itemsTitulos{
+  height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 115px;
+    gap: 60px;
+}
+.resumenTotal{
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+.buttonDelete{
+  height: 40px;
+  width: 90px;
+  border-radius: 5px;
+  color: white;
+  background-color: #121212;
+  border: none;
+  cursor: pointer;
+
+}
+.getTotal{
+  max-width: 50px;
+  width: 50px;
+  
+
+}
+
+.buttonConfirmar{
+  height: 40px;
+  width: 150px;
+  border-radius: 5px;
+  color: white;
+  background-color: #121212;
+  border: none;
+  cursor: pointer;
+  margin: 30px 0 0 35%;
+}
+
+.productList{
+margin: 0 0 10px;
+}
+.emailWhite{
+  color: white;
 }

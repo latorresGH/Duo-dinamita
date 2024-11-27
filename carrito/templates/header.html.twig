@@ -1,18 +1,19 @@
-{% extends 'base.html.twig' %}
-{% block body %}
+{% extends 'base.html.twig' %} {% block body %}
 
-
-    
-        <header>
-            <h2>Carrito de compras</h2>
-        
-            <div>
-                <button><b>Ver orden</b></button>
-                <a href="{{ path('app_logout') }}">
-                <button><b>Salir</b></button>
-                </a>
-            </div>
-        
-        </header>
+<header>
+  <h2>Carrito de compras</h2>
+  {% if
+    is_granted('IS_AUTHENTICATED_FULLY') %}
+    <p class="emailWhite">Email: {{ app.user.email }}</p>
+    {% endif %}
+  <div>
+    <a href="{{ path('ver_orden') }}">
+      <button><b>Ver orden</b></button>
+    </a>
+    <a href="{{ path('app_logout') }}">
+      <button><b>Salir</b></button>
+    </a>
+  </div>
+</header>
 
 {% endblock %}

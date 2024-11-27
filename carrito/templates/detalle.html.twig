@@ -1,22 +1,32 @@
-{% include "header.html.twig" %}
-{% block body %}
+{% include "header.html.twig" %} {% block body %}
+
 <h1 class="detailsTittle"><b>Detalle Producto</b></h1>
+
 <div class="detailsContainer">
-    <div class="ImageByOne">
-       <img src="{{ asset(producto.imagen) }}">
+  <div class="imageByOne">
+    <img class="imageDetails" src="{{ asset(producto.imagen) }}" />
+  </div>
+
+  <div class="infContainer">
+    <div class="productContainer">
+      <h2>{{ producto.nombre }}</h2>
+      <p>{{ producto.descripcion }}</p>
+      <p>
+        <b>Precio: <span class="spanPeso">$</span>{{ producto.precio }}</b>
+      </p>
     </div>
 
-    <div class="infContainer">
-        <div class="productContainer">
-            <h2>{{producto.nombre}}</h2> 
-            <p>{{producto.descripcion}}</p>
-            <p> <b>Precio: <span class="spanPeso">$</span>{{producto.precio}}</b></p>
-        </div>
-
-        <a href="{{ path('listar_productos') }}">
-            <button class="buttonDetails" type="submit"><b>Volver</b></button>
-        </a>
+    <div class="formularioDetalle">
+      <form action="{{ path('agregar_producto') }}" method="post">
+        <p>Cantidad:</p>
+        <button class="buttonDetails" type="submit">Agregar a la orden</button>
+        <input type="number" name="cantidad" max="1000" />
+        <input type="hidden" name="idProducto" value="{{ producto.id }}"/>
+      </form>
     </div>
-    
+    <a href="{{ path('listar_productos') }}">
+      <button class="buttonDetails" type="submit"><b>Volver</b></button>
+    </a>
+  </div>
 </div>
 {% endblock %}

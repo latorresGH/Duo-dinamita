@@ -1,32 +1,29 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Login!{% endblock %}
-
-{% block body %}
-{% if error %}
+{% extends 'base.html.twig' %} {% block title %}Login!{% endblock %} {% block
+body %} {% if error %}
 <div>Usuario o contraseña incorrecta</div>
 {% endif %}
 <div class="box">
-    <div class="box2">
-        <div>
-            <h1 class="tituloLogin">
-                Inicio de Sesion
-            </h1>
-        <div>
-                <div class="formBox">
-                    <form action="{{ path('app_login') }}" method="post">
-                        <p>Email:</p>
-                        <input type="text" id="username" name="_username" value="{{ last_username }}" />
-                        <p>Password:</p>
-                        <input type="password" id="password" name="_password" />
-                        <button class="buttonLogin" type="submit">Iniciar Sesion</button>
-                    </form>
-            </div>
-
-            </div>
+  <div class="box2">
+    <div>
+      <h1 class="tituloLogin">Inicio de Sesion</h1>
+      <div>
+        <div class="formBox">
+          <form action="{{ path('app_login') }}" method="post">
+            <p>Email:</p>
+            <input
+              type="text"
+              id="username"
+              name="_username"
+              value="{{ last_username }}"
+            />
+            <p>Password:</p>
+            <input type="password" id="password" name="_password" />
+            <button class="buttonLogin" type="submit">Iniciar Sesion</button>
+          </form>
         </div>
+      </div>
     </div>
-
+  </div>
 </div>
 
 {% endblock %}

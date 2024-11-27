@@ -1,31 +1,33 @@
-{% include "header.html.twig" %}
-{% block body %}
+{% include "header.html.twig" %} {% block body %} 
 
-{% if is_granted('IS_AUTHENTICATED_FULLY') %}
- <p>Email: {{ app.user.email }}</p>
-{% endif %}
+{% for message in app.flashes('notice') %}
+<div class="flashProducto">
+  {{ message }}
+</div>
+{% endfor %}
 
-    <h1><b>Lista de productos</b></h1>
-    <div class="contenedorProducto">
-        {% for key, product in productos %}
-        <div class="productoCard">
-            <div class="imagenProduct">
-                <img src="{{product.imagen}}">
-            </div>
-            
-            <div class="productoPropiedades">
-                <h2>{{product.nombre}}</h2> 
-                <p class="precioP"><span class="spanPeso">$</span>{{product.precio}}</p>
-            </div>
-            <div class="productoPrecio">
-                <p>{{product.descripcion}}</p>
-                <a href="{{ path('detalle_producto', { idProducto: product.id }) }}">
-                <button><b>DETALLES</b></button>
-                </a>
-            </div>
-        </div>
-        {% endfor %}
+<h1><b>Lista de productos</b></h1>
+
+<div class="contenedorProducto">
+  {% for key, product in productos %}
+  <div class="productoCard">
+    <div class="imagenProduct">
+      <img src="{{ product.imagen }}" />
     </div>
-    
-{% endblock %}
 
+    <div class="productoPropiedades">
+      <h2>{{ product.nombre }}</h2>
+      <p class="precioP"><span class="spanPeso">$</span>{{ product.precio }}</p>
+    </div>
+    <div class="productoPrecio">
+      <p>{{ product.descripcion }}</p>
+      <a href="{{ path('detalle_producto', { idProducto: product.id }) }}">
+        <button><b>DETALLES</b></button>
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
+ 

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Manager\ProductoManager;
 use App\Repository\ItemRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -22,14 +23,9 @@ class Item
     #[ORM\JoinColumn(nullable: false)]
     private ?Producto $producto = null;
 
-    #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'item')]
+    #[ORM\ManyToOne(targetEntity: Orden::class, inversedBy: 'items')] 
     #[ORM\JoinColumn(nullable: false)]
-    private ?self $item = null;
-
-    public function __construct()
-    {
-        $this->item = new ArrayCollection();
-    }
+    private ?Orden $orden = null; 
 
     public function getId(): ?int
     {
@@ -44,7 +40,6 @@ class Item
     public function setCantidad(int $cantidad): static
     {
         $this->cantidad = $cantidad;
-
         return $this;
     }
 
@@ -56,41 +51,27 @@ class Item
     public function setProducto(?Producto $producto): static
     {
         $this->producto = $producto;
+        return $this;
+    }
+    
+    public function getOrden(): ?Orden
+    {
+        return $this->orden;
+    }
 
+    public function setOrden(?Orden $orden): static
+    {
+        $this->orden = $orden;
         return $this;
     }
 
-    public function getItem(): ?self
-    {
-        return $this->item;
+    public function equals(Item $otroItem): bool{
+        return $this->producto === $otroItem->getProducto();
     }
 
-    public function setItem(?self $item): static
+    public function getTotal(): float
     {
-        $this->item = $item;
-
-        return $this;
-    }
-
-    public function addItem(self $item): static
-    {
-        if (!$this->item->contains($item)) {
-            $this->item->add($item);
-            $item->setItem($this);
-        }
-
-        return $this;
-    }
-
-    public function removeItem(self $item): static
-    {
-        if ($this->item->removeElement($item)) {
-            // set the owning side to null (unless already changed)
-            if ($item->getItem() === $this) {
-                $item->setItem(null);
-            }
-        }
-
-        return $this;
+       return $this->producto->getPrecio() * $this->cantidad;
     }
 }
+ 

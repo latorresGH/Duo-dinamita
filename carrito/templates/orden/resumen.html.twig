@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %} {% block body %}
+<header>
+  <h2>Carrito de compras</h2>
+  {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+  <p class="emailWhite">Email: {{ app.user.email }}</p>
+  {% endif %}
+  <div class="verOrdenHeader">
+    <a href="{{ path('listar_productos') }}">
+      <button><b>Productos</b></button>
+    </a>
+    {% if orden.getItems()|length > 0 %}
+        <a href="{{ path('vaciar_orden') }}">
+            <button><b>Vaciar Orden</b></button>
+        </a>
+    {% endif %}
+    <a href="{{ path('app_logout') }}">
+      <button><b>Salir</b></button>
+    </a>
+  </div>
+</header>
+<h1 class="detailsTittle"><b>Su orden</b></h1>
+<div class="contenedor1">
+  <div class="contenedor2">
+    <header>
+      <h3><b>Items</b></h3>
+    </header>
+    <div>
+      <div class="itemsTitulos">
+        <p class="nombreLista"><b>Producto</b></p>
+        <p><b>Cantidad</b></p>
+        <p><b>Precio</b></p>
+        <p><b>Total</b></p>
+      </div>
+      {% for item in orden.getItems() %}
+      <div class="productList">
+        <div class="listaOrden">
+          <img
+            src="{{ asset(item.getProducto().getImagen()) }}"
+            alt="{{ item.getProducto().getNombre() }}"
+            style="width: 100px; height: auto"
+          />
+          <div class="pLista">
+            <p class="nombreLista">{{ item.getProducto().getNombre() }}</p>
+            <p>{{ item.getCantidad() }} unidades</p>
+            <p>${{ item.getProducto().getPrecio() }}</p>
+            <p class="getTotal">
+              <b>${{ item.getTotal }}</b>
+            </p>
+            <a href="{{ path('eliminar_item', { idItem: item.getId }) }}">
+              <button class="buttonDelete"><b>Eliminar</b></button>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="contenedor3">
+    <header>
+      <h3><b>Resumen</b></h3>
+    </header>
+    <div class="resumenTotal">
+      <p class="nombreLista"><b>Total</b></p>
+      <p>
+        <b>${{ orden.getTotal() }}</b>
+      </p>
+    </div>
+    <a href="{{ path('finalizar_compra') }}">
+      <button class="buttonConfirmar"><b>Confirmar compra</b></button>
+    </a>
+  </div>
+</div>
+
+{% endblock %}

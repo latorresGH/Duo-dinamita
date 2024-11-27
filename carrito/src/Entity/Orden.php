@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use App\Repository\OrdenRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -78,5 +80,59 @@ class Orden
         $this->usuario = $usuario;
 
         return $this;
+    }
+
+    #[ORM\OneToMany(targetEntity: Item::class, mappedBy: 'orden', cascade: ['persist'])]
+    private Collection $items;
+
+    public function __construct()
+    {
+        $this->items = new ArrayCollection();
+    }
+
+    public function addItem(Item $item): Item
+    {
+        foreach ($this->items as $existeItem) {
+            if ($existeItem->equals($item)) {
+                $nuevaCantidad = $existeItem->getCantidad() + $item->getCantidad();
+                $existeItem->setCantidad($nuevaCantidad);
+                return $existeItem; 
+            }
+        }
+        $this->items[] = $item;
+        $item->setOrden($this); 
+        return $item;
+    }
+
+    public function removeItem(Item $item): static
+    {
+        if ($this->items->removeElement($item)) {
+            if ($item->getOrden() === $this) {
+                $item->setOrden(null);
+            }
+        }
+        return $this;
+    }
+
+    public function getItems(): Collection
+    {
+        return $this->items;
+    }
+    public function agregarItem($producto, $cantidad)
+    {
+        $item = new Item();
+        $item->setCantidad($cantidad);
+        $item->setProducto($producto);
+        $item->setOrden($this);
+        $itemnuevo= $this->addItem($item);
+        return $itemnuevo;
+    }
+
+    public function getTotal(){
+        $total = 0;
+        foreach($this->items as $item){
+            $total+= $item->getTotal();
+        }   
+        return $total;
     }
 }
